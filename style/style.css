@@ -1,0 +1,249 @@
+/* making overall style here */
+
+
+/* making h1 and h2 style */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    /* changing color here */
+    background-color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 62.5%;
+    letter-spacing: 1.5px;
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1.6em;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+.score-panel {
+    font-size: 2em;
+    padding: 1em 0 2em;
+}
+
+.moves-counter {
+    padding: .5em;
+}
+
+.reset-btn {
+    background-color: black;
+}
+
+.timer-container {
+    background-color: white;
+    border-radius: .5em;
+    color: black;
+    padding: .5em;
+    margin: .5em;
+}
+
+.timer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: .5em;
+}
+
+ul>li {
+    list-style: none;
+}
+
+
+/* making cards and reset btn clickable */
+
+.card,
+.reset-btn {
+    cursor: pointer;
+}
+
+
+/* style for btn */
+
+.btn {
+    border-radius: 1em;
+    border: none;
+    color: white;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    padding: 0.8em;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    /* for positioning */
+    z-index: 99;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* setting background color */
+    background-color: rgb(59, 68, 73);
+}
+
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox */
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 5% auto;
+    border: .8em solid aqua;
+    padding-right: 2em;
+    width: 100%;
+}
+
+.close {
+    /* https://stackoverflow.com/questions/41392780/flexbox-align-self-flex-end-horizontally */
+    align-self: flex-end;
+    color: skyblue;
+    font-size: 5em;
+}
+
+.close:hover,
+.close:focus {
+    color: skyblue;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-img {
+    display: inline-block;
+    margin: 1em 0 1em;
+    width: 20em;
+}
+
+p.stats {
+    font-weight: 600;
+    /* could be better here */
+}
+
+p.stats:last-child {
+    margin-bottom: 1em;
+}
+
+
+/* making play-again btn background and positioning */
+
+.play-again.btn {
+    background: rgb(46, 114, 141);
+    margin-bottom: 1em;
+}
+
+
+/* fix the center block issues */
+
+.deck {
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient */
+    background: linear-gradient(to bottom, skyblue, rgb(51, 51, 161));
+    border-radius: 1.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 40em;
+    margin-bottom: 5em;
+    padding: 1em;
+    width: 40em;
+}
+
+.deck,
+.card {
+    box-shadow: 5px 2px 20px 0 rgb(73, 99, 121);
+}
+
+.card {
+    /* change the card color here. */
+    background-color: rgba(248, 250, 130, 0.603);
+    border-radius: .5em;
+    height: 6em;
+    width: 6em;
+}
+
+img {
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/user-select */
+    user-select: none;
+    width: 6em;
+}
+
+.deck img {
+    /* making the pic on the cards hidden */
+    visibility: hidden;
+}
+
+.deck .card.flip {
+    background-color: white;
+    cursor: default;
+    transform: rotateY(180deg);
+    transition: transform 0.3s linear;
+    pointer-events: none;
+}
+
+.flip img {
+    background: white;
+    visibility: visible;
+}
+
+.deck .card.match {
+    background: rgb(76, 178, 246);
+    visibility: visible;
+    cursor: default;
+    /* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
+    animation: pulse 1s;
+}
+
+.match img {
+    background: rgb(76, 178, 246);
+}
+
+
+/* https://css-tricks.com/almanac/properties/a/animation/ */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
